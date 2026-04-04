@@ -118,8 +118,8 @@ function loadData() {
   .then(data => {
     console.log("ACCOUNT:", data);
 
-    document.getElementById("balance").innerText = "₹" + data.balance;
-    document.getElementById("name").innerText = "Account Holder: " + data.accountHolderName;
+    document.getElementById("balance").innerText = "₹" + formatINR(data.balance);
+    document.getElementById("name").innerText = "Account Holder: (" + data.accountHolderName + ")";
     document.getElementById("myAccountNumber").innerText = "Account Number: " + data.accountNumber;
   });
 
@@ -146,7 +146,7 @@ function loadData() {
     data.forEach(tx => {
       const li = document.createElement("li");
 
-li.innerText = `${tx.type} | ₹${tx.amount} | ${new Date(tx.timestamp).toLocaleString()}`;
+li.innerText = `${tx.type} | ₹${formatINR(tx.amount)} | ${new Date(tx.timestamp).toLocaleString()}`;
       list.appendChild(li);
     });
   });
@@ -168,7 +168,7 @@ function transactions() {
 txList.innerHTML = "";
     data.forEach(t => {
       let li = document.createElement("li");
-li.innerText = `${tx.type} | ₹${tx.amount} | ${new Date(tx.timestamp).toLocaleString()}`;      
+li.innerText = `${tx.type} | ₹${formatINR(tx.amount)} | ${new Date(tx.timestamp).toLocaleString()}`;      
 txList.appendChild(li);
     });
   });
@@ -288,7 +288,12 @@ if (usernameInput) {
    }
 
  });
-}// 🔥 FIXED: usernameInput null error
+}
+
+function formatINR(amount) {
+  return new Intl.NumberFormat('en-IN').format(amount);
+}
+// 🔥 FIXED: usernameInput null error
 
 // 🔥 AUTO LOAD DASHBOARD
 
