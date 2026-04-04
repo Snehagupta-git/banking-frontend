@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bank App</title>
+</head>
+<body>
+
+<script>
+  const token = localStorage.getItem("token");
+  window.location.href="register.html"
+//🔥 only redirect if token exists AND valid format
+if (token && token.length > 20) {
+  window.location.href = "dashboard.html";
+} else {
+  localStorage.removeItem("token"); // cleanup
+  window.location.href = "login.html";
+}
+
+</script>
+
+</body>
+</html>

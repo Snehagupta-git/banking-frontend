@@ -1,0 +1,11 @@
+
+.cache/
+.config/
+.eclipse/
+.settings/
+.metadata/
+node_modules/
+target/
+bin/
+*.log
+.DS_Store

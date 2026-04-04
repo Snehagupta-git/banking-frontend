@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css">
+
+  <script>
+    if (!localStorage.getItem("token")) {
+      window.location.href = "login.html";
+    }
+  </script>
+</head>
+
+<body>
+
+<div class="dashboard">
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <h2>💳 My Bank</h2>
+    <button onclick="logout()">Logout</button>
+  </div>
+
+  <!-- BALANCE CARD -->
+  <div class="balance-card">
+    <h3>Available Balance</h3>
+    <h1 id="balance">₹0</h1>
+    <p id="name"> Account Holder:
+</p>
+    <p id="myAccountNumber">Account Number: </p>
+  </div>
+
+  <!-- ACTION GRID -->
+  <div class="grid">
+
+    <!-- DEPOSIT / WITHDRAW -->
+    <div class="card">
+      <h3>Deposit / Withdraw</h3>
+      <input id="amount" placeholder="Enter Amount">
+      <div class="btn-group">
+        <button onclick="deposit()">Deposit</button>
+        <button class="secondary" onclick="withdraw()">Withdraw</button>
+      </div>
+    </div>
+
+    <!-- TRANSFER -->
+    <div class="card">
+      <h3>Transfer Money</h3>
+      <input id="accountNumber" placeholder="Receiver Account Number">
+      <input id="transferAmount" placeholder="Enter Amount">
+      <button onclick="transfer()">Send Money</button>
+    </div>
+
+  </div>
+
+  <!-- TRANSACTIONS -->
+  <div class="card">
+    <h3>Transactions</h3>
+    <ul id="transactions"></ul>
+  </div>
+
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
