@@ -109,7 +109,7 @@ function goLogin() {
 function loadData() {
 
   // 🔥 GET ACCOUNT
-  fetch(BASE + "/accounts/me", {
+  fetch(BASE + "/api/accounts/me", {
     headers: {
       Authorization: "Bearer " + localStorage.getItem("token")
     }
@@ -124,7 +124,7 @@ function loadData() {
   });
 
   // 🔥 GET TRANSACTIONS
-  fetch(BASE + "/accounts/me/transactions", {
+  fetch(BASE + "/api/accounts/me/transactions", {
     headers: {
       Authorization: "Bearer " + localStorage.getItem("token")
     }
@@ -152,7 +152,7 @@ li.innerText = `${tx.type} | ₹${formatINR(tx.amount)} | ${new Date(tx.timestam
   });
 }
 function transactions() {
-  fetch(BASE + "/accounts/me/transactions", {
+  fetch(BASE + "/api/accounts/me/transactions", {
     headers: {
       Authorization: "Bearer " + localStorage.getItem("token")
     }
@@ -178,7 +178,7 @@ txList.appendChild(li);
 function deposit() {
       let amount = document.getElementById("amount").value; // 🔥 ADD THIS
 
-  fetch(BASE + "/accounts/me/deposit", {
+  fetch(BASE + "/api/accounts/me/deposit", {
     method: "PUT",
     headers: {
       Authorization: "Bearer " + localStorage.getItem("token"),
@@ -206,7 +206,7 @@ function deposit() {
 function withdraw() {
       let amount = document.getElementById("amount").value; // 🔥 ADD
 
-  fetch(BASE + "/accounts/me/withdraw", {
+  fetch(BASE + "/api/accounts/me/withdraw", {
     method: "PUT",
     headers: {
       Authorization: "Bearer " + localStorage.getItem("token"),
@@ -234,7 +234,7 @@ function withdraw() {
 function transfer() {
         let toAccountNumber = document.getElementById("toAccountNumber"); // 🔥 ADD
         let transferAmount = document.getElementById("transferAmount"); // 🔥 ADD
-  fetch(BASE + "/accounts/me/transfer", {
+  fetch(BASE + "/api/accounts/me/transfer", {
     method: "POST",
     headers: {
       Authorization: "Bearer " + localStorage.getItem("token"),
