@@ -1,4 +1,4 @@
-const BASE = "http://localhost:8080/api";
+const BASE = "https://banking-backend-3-gi23.onrender.com";
 console.log("API BASE URL:");
 
 // 🔐 LOGIN
