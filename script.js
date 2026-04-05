@@ -4,7 +4,7 @@ console.log("API BASE URL:");
 // 🔐 LOGIN
 function login() {
   console.log("Logging in..."); // 🔥 DEBUG LOG
-  fetch(BASE + "api/auth/login", {
+  fetch(BASE + "/api/auth/login", {
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify({
@@ -69,7 +69,7 @@ if (!validateUsername(username)) {
   alert("Invalid username format");
   return;
 }
-  fetch(BASE + "api/auth/register", {
+  fetch(BASE + "/api/auth/register", {
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify({
